@@ -14,23 +14,23 @@ public class UserRolService {
     @Autowired
     UserRolRepository userRolRepository;
 
-    public ArrayList<UserRolModel> obtenerUserRol(){
+    public ArrayList<UserRolModel> obtenerUserRol() {
         return (ArrayList<UserRolModel>) userRolRepository.findAll();
     }
 
-    public UserRolModel crearUserRol(UserRolModel rol){
+    public UserRolModel crearUserRol(UserRolModel rol) {
         return userRolRepository.save(rol);
     }
 
-    public Optional<UserRolModel> obtenerPorId(Long roleId){
+    public Optional<UserRolModel> obtenerPorId(Long roleId) {
         return userRolRepository.findById(roleId);
     }
-    
-    public ArrayList<UserRolModel> obtenerPorDescripcion(String description){
+
+    public ArrayList<UserRolModel> obtenerPorDescripcion(String description) {
         return userRolRepository.findByDescription(description);
     }
 
-    public boolean eliminarUserRol(Long roleId){
+    public boolean eliminarUserRol(Long roleId) {
         try {
             userRolRepository.deleteById(roleId);
             return true;
